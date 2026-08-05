@@ -1,0 +1,426 @@
+# Product Language
+
+**Project:** Magnet Memories
+
+**Version:** 1.0
+
+---
+
+# Purpose
+
+Product language defines how Magnet Memories communicates with its users.
+
+Every word displayed in the application should reinforce the product's identity:
+
+> **Magnet Memories is not a photo gallery. It is a collection of family journeys.**
+
+The language should feel:
+
+* Warm
+* Human
+* Calm
+* Timeless
+* Encouraging
+* Family-oriented
+
+It should never sound technical or corporate.
+
+---
+
+# Design Philosophy
+
+Language is part of the user experience.
+
+Users should feel as though they are opening a treasured scrapbook rather than operating a piece of software.
+
+Whenever possible:
+
+* Use everyday language.
+* Prefer emotional words over technical ones.
+* Keep sentences short.
+* Let photographs tell the story.
+
+---
+
+# Tone of Voice
+
+Magnet Memories should speak like a thoughtful host welcoming someone into their home.
+
+The application should never sound:
+
+* robotic
+* instructional
+* overly enthusiastic
+* playful at the expense of sincerity
+* technical
+
+Instead, it should sound:
+
+* warm
+* reassuring
+* understated
+* respectful
+* quietly joyful
+
+---
+
+# Core Vocabulary
+
+These words define the product.
+
+| Instead of... | Use...                                                     |
+| ------------- | ---------------------------------------------------------- |
+| Album         | Journey                                                    |
+| Description   | Memory Card                                                |
+| Home          | Gallery                                                    |
+| Gallery View  | Gallery                                                    |
+| Open          | Relive                                                     |
+| Photo Gallery | Journey                                                    |
+| Media         | Memories *(user-facing)*                                   |
+| Folder        | Journey Folder *(admin only)*                              |
+| Slideshow     | Journey Playback *(documentation)* / Relive Journey *(UI)* |
+| Exit          | Return to Gallery                                          |
+| Import        | Add Journey                                                |
+| Delete        | Remove Journey                                             |
+| Settings      | Preferences                                                |
+| File          | Memory *(where appropriate)*                               |
+| Collection    | Journey                                                    |
+
+---
+
+# User-Facing Terminology
+
+The following words should appear in the interface.
+
+## Journey
+
+A collection of memories from one holiday or experience.
+
+Examples:
+
+* Japan 2028
+* New York 2026
+* Summer in Sweden
+
+---
+
+## Memory Card
+
+The introduction shown before every journey.
+
+Contains:
+
+* title
+* location
+* dates
+* favourite quote
+* personal story
+
+Every journey begins here.
+
+---
+
+## Gallery
+
+The idle screen.
+
+The Gallery patiently waits for the next journey.
+
+It is never referred to as "Home."
+
+---
+
+## Memories
+
+The individual experiences contained within a journey.
+
+Internally these may be implemented as media objects or moments, but users should simply experience them as memories.
+
+---
+
+## Favourite Quote
+
+A short sentence that captures the feeling of a journey.
+
+Examples:
+
+> "The holiday where Ira decided every pigeon was her best friend."
+
+> "We laughed harder than we slept."
+
+This field is optional.
+
+---
+
+# Internal Engineering Terminology
+
+The codebase may use more technical language.
+
+Recommended internal model:
+
+```text
+Journey
+
+└── Moment
+
+    ├── Memory Card
+    ├── Photo
+    ├── Live Photo
+    ├── Video (future)
+    ├── Ticket (future)
+    └── Audio (future)
+```
+
+The word **Moment** is an implementation concept and should rarely appear in the user interface.
+
+---
+
+# Writing Style
+
+## Prefer
+
+Simple language.
+
+Example:
+
+> Tap a travel magnet to relive a journey.
+
+Instead of:
+
+> Scan an NFC tag to launch an album.
+
+---
+
+## Prefer
+
+Natural sentences.
+
+Example:
+
+> Journey imported successfully.
+
+Instead of:
+
+> Import operation completed successfully.
+
+---
+
+## Prefer
+
+Warm confirmation.
+
+Example:
+
+> Your journey is ready.
+
+Instead of:
+
+> Import complete.
+
+---
+
+# Empty States
+
+Empty states should invite rather than apologise.
+
+## Gallery
+
+> **Your gallery is waiting.**
+
+> Add your first journey to begin building your family memory collection.
+
+---
+
+## No Journeys
+
+> No journeys yet.
+
+> Add your first journey and start creating lasting memories.
+
+---
+
+## No Memories
+
+> This journey is waiting for its first memories.
+
+---
+
+# NFC Interaction
+
+When a journey is recognised:
+
+Avoid:
+
+> NFC tag detected.
+
+Prefer:
+
+> Preparing your journey…
+
+---
+
+When the journey opens:
+
+Avoid:
+
+> Opening album.
+
+Prefer:
+
+> Reliving **Japan**…
+
+---
+
+# Unknown Magnet
+
+Avoid:
+
+> Unknown tag.
+
+Prefer:
+
+> This magnet hasn't been linked to a journey yet.
+
+---
+
+# Import Flow
+
+Avoid:
+
+> Select folder.
+
+Prefer:
+
+> Choose a journey folder.
+
+---
+
+Avoid:
+
+> Import complete.
+
+Prefer:
+
+> Your journey is ready.
+
+---
+
+# Journey Completion
+
+Avoid:
+
+> End of slideshow.
+
+Prefer:
+
+> Journey complete.
+
+---
+
+Then gently return to the Gallery.
+
+---
+
+# Error Messages
+
+Errors should explain the situation without exposing technical details.
+
+## Example
+
+Instead of:
+
+> File not found.
+
+Use:
+
+> One or more memories couldn't be loaded.
+
+The rest of your journey is ready to enjoy.
+
+---
+
+Instead of:
+
+> Unsupported format.
+
+Use:
+
+> Some files couldn't be imported because they aren't supported yet.
+
+---
+
+Instead of:
+
+> Storage full.
+
+Use:
+
+> There isn't enough space to add this journey.
+
+Remove another journey or free some storage, then try again.
+
+---
+
+# Administrative Language
+
+Administrative mode may use slightly more technical wording, but should remain approachable.
+
+Examples:
+
+* Add Journey
+* Journey Folder
+* Import Preview
+* Storage Used
+* Write Magnet
+* Verify Magnet
+* Remove Journey
+
+Avoid engineering terminology such as:
+
+* URI
+* Database
+* MIME Type
+* Payload
+* Media Entity
+
+These belong in logs and documentation, not the interface.
+
+---
+
+# Accessibility Language
+
+Screen reader labels should describe actions naturally.
+
+Examples:
+
+* Relive Journey
+* Return to Gallery
+* Replay Live Photo
+* Pause Journey
+* Resume Journey
+
+Avoid abbreviations where possible.
+
+---
+
+# Guiding Principles
+
+Every piece of text should answer one question:
+
+> **Does this help someone remember?**
+
+If a sentence feels technical, rewrite it.
+
+If a word sounds like software, replace it with something more human.
+
+If a phrase does not contribute to the feeling of reliving a journey, it probably does not belong.
+
+---
+
+# Brand Promise
+
+Magnet Memories exists to preserve stories, not simply photographs.
+
+Every interaction should reinforce one simple idea:
+
+> **Every magnet tells a story.**
